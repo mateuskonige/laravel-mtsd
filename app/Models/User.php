@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use App\Models\Tenant;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -45,5 +46,9 @@ class User extends Authenticatable
 
     public function tenants() {
         return $this->belongsTo(Tenant::class);
+    }
+
+    public function posts() {
+        return $this->hasMany(Post::class);
     }
 }
